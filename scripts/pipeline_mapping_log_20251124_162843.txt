@@ -1,0 +1,11 @@
+Starting mapping of non-host reads with Bowtie2.
+⚙️ Running with 12 threads.
+
+--- PER-SAMPLE MAPPING LOG ---
+
+Sample	Reads_Input	Reads_Mapped	Runtime_seconds
+------------------------------------------------------
+ Processing sample: M259A
+Mapping sample M259A with Bowtie2 (using 12 threads, 5054294 reads)...
+🧹 Running cleanup...
+Removing partial markdup files for sample: M259A
