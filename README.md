@@ -1,6 +1,7 @@
 # Marburg Virus VSP Illumina Analysis Pipeline
 
 This repository contains an analysis pipeline for processing Illumina sequencing data of Marburg virus (MARV) samples. The workflow includes raw data quality control, host read removal, mapping, BAM QC, variant calling, consensus generation, coverage assessment, clade assignment and MultiQC reporting. The pipeline is modular, reproducible, and suitable for batch processing of multiple samples.
+
 ---
 
 ## Table of Contents
