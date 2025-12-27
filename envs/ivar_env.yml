@@ -1,0 +1,8 @@
+name: ivar_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - ivar=1.4.3
+  - samtools=1.22.1

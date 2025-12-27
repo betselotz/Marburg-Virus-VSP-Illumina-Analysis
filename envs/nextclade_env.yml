@@ -1,0 +1,9 @@
+name: nextclade_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - nextclade=3.18.0
+  - nextstrain-augur
+  - mafft
