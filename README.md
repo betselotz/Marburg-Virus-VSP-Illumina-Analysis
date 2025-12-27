@@ -237,9 +237,9 @@ MARV-GEN-VSP-Illumina-Analysis/
 │   ├── 10_msa/                                 # Multiple sequence alignment outputs (MAFFT)
 │   ├── 11_phylogeny/                            # IQ-TREE phylogenetic trees
 │   ├── 12_treetime/                             # Time-resolved phylogeny (TreeTime)
-│       ├── MARV.A.1/
-│           └── visualization/
-│       └── visualization/
+│       ├── visualization /
+│       └── MARV.A.1/
+│              └── visualization/
 │   └── 13_multiqc/
 │       ├── fastp/                              # MultiQC report for Fastp
 │       ├── nextclade/                           # MultiQC report for Nextclade
