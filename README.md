@@ -208,9 +208,10 @@ MARV-GEN-VSP-Illumina-Analysis/
 │   ├── MARV_X_1.fastq.gz
 │   └── MARV_X_2.fastq.gz
 ├── reference_genomes/
-│   ├── NC_001608.4.fasta
-│   ├── EF446131.1.fasta
-│   ├── MARV_downloads/                         # Downloaded MARV genomes
+│   ├── Marburg_reference.fasta                 # NC_001608.4.fasta
+│   ├── Marburg_reference.gb                    # NC_001608.4.gb
+│   ├── EF446131.1.fasta                        # outgroup.fasta
+│   ├── MARV_downloads/                         # all Downloaded MARV genomes in fasta from NCBI
 │   └── MARV_compare/                           # Filtered reference genomes (≥18,000 bp)
 ├── database/
 │   └── nextclade_marburg_dataset/             # Nextclade reference dataset
@@ -236,6 +237,9 @@ MARV-GEN-VSP-Illumina-Analysis/
 │   ├── 10_msa/                                 # Multiple sequence alignment outputs (MAFFT)
 │   ├── 11_phylogeny/                            # IQ-TREE phylogenetic trees
 │   ├── 12_treetime/                             # Time-resolved phylogeny (TreeTime)
+│       ├── MARV.A.1/
+│           └── visualization/
+│       └── visualization/
 │   └── 13_multiqc/
 │       ├── fastp/                              # MultiQC report for Fastp
 │       ├── nextclade/                           # MultiQC report for Nextclade
