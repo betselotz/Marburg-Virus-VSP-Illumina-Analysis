@@ -250,7 +250,7 @@ MARV-GEN-VSP-Illumina-Analysis/
 └── README.md
              
 ```
-## Lineage-Defining SNPs Analysis
+## SNPs analysis
 
 The MARV-GEN repository includes scripts for advanced genomic analyses of the Marburg virus sequences, separate from the core Illumina processing pipeline.
 
