@@ -1,5 +1,6 @@
-# 🧬 **MARV-GEN** Marburg virus Genome Analysis Pipeline
+# 🧬 **`MARV-GEN`** — Marburg Virus Genome Analysis Pipeline
 ## Marburg Virus VSP Illumina Analysis Pipeline
+
 This repository contains an analysis pipeline for processing Illumina sequencing data of Marburg virus (MARV) samples. The workflow includes raw data quality control, host read removal, mapping, BAM QC, variant calling, consensus generation, coverage assessment, clade assignment, phylogenetic analysis, MultiQC reporting, and downstream genomic analyses including lineage-defining SNP identification, diversity metrics, selective pressure estimation, and publication-quality visualizations.
 
 ---
