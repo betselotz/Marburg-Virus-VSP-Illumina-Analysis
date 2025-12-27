@@ -1,5 +1,6 @@
-# MARV-GEN
+# 🧬 **`MARV-GEN`** - Marburg Virus Genome Analysis Pipeline
 ## Marburg Virus VSP Illumina Analysis Pipeline
+
 This repository contains an analysis pipeline for processing Illumina sequencing data of Marburg virus (MARV) samples. The workflow includes raw data quality control, host read removal, mapping, BAM QC, variant calling, consensus generation, coverage assessment, clade assignment, phylogenetic analysis, MultiQC reporting, and downstream genomic analyses including lineage-defining SNP identification, diversity metrics, selective pressure estimation, and publication-quality visualizations.
 
 ---
@@ -12,7 +13,7 @@ This repository contains an analysis pipeline for processing Illumina sequencing
 - [Installation](#installation)
 - [Usage](#usage)
 - [Directory Structure](#directory-structure)
-- [Lineage-Defining SNPs Analysis](#Lineage-Defining SNPs Analysis)
+- [Lineage Defining SNPs Analysis](#SNPs-analysis)
 - [Visualization](#Visualization)
 - [Logging](#logging)
 - [Authors](#authors)
@@ -68,7 +69,6 @@ The pipeline uses the following software tools:
 - [minimap2](https://github.com/lh3/minimap2) – Read mapping
 - [Qualimap](http://qualimap.bioinfo.cipf.es) – BAM QC
 - [MAFFT](https://mafft.cbrc.jp/alignment/software/) – Multiple sequence alignment
-- [trimAl](http://trimal.cgenomics.org/) – Alignment trimming
 - [Nextclade](https://clades.nextstrain.org/) – clade asignment
 - [IQ-TREE](http://www.iqtree.org/) – Phylogenetic analysis
 - [treetime](https://github.com/neherlab/treetime) – time-scaled phylogenies
@@ -127,8 +127,22 @@ X. MultiQC Reporting
 ```bash
 conda create -n multiqc_env -c bioconda -y multiqc
 ```
+3. Automatic Environment Creation via YAML files (recommended):
 
-
+All required environments can be created automatically using the YAML files provided in the envs/ directory:
+```bash
+cd envs/
+conda env create -f fastp_env.yml
+conda env create -f host_removal_env.yml
+conda env create -f mapping_env.yml
+conda env create -f qualimap_env.yml
+conda env create -f ivar_env.yml
+conda env create -f mafft_env.yml
+conda env create -f nextclade_env.yml
+conda env create -f iqtree_env.yml
+conda env create -f treetime_env.yml
+conda env create -f multiqc_env.yml
+```
 
 3. Prepare input directories:
 ```bash
@@ -208,9 +222,10 @@ MARV-GEN-VSP-Illumina-Analysis/
 │   ├── MARV_X_1.fastq.gz
 │   └── MARV_X_2.fastq.gz
 ├── reference_genomes/
-│   ├── NC_001608.4.fasta
-│   ├── EF446131.1.fasta
-│   ├── MARV_downloads/                         # Downloaded MARV genomes
+│   ├── Marburg_reference.fasta                 # NC_001608.4.fasta
+│   ├── Marburg_reference.gb                    # NC_001608.4.gb
+│   ├── EF446131.1.fasta                        # outgroup.fasta
+│   ├── MARV_downloads/                         # all Downloaded MARV genomes in fasta from NCBI
 │   └── MARV_compare/                           # Filtered reference genomes (≥18,000 bp)
 ├── database/
 │   └── nextclade_marburg_dataset/             # Nextclade reference dataset
@@ -236,6 +251,9 @@ MARV-GEN-VSP-Illumina-Analysis/
 │   ├── 10_msa/                                 # Multiple sequence alignment outputs (MAFFT)
 │   ├── 11_phylogeny/                            # IQ-TREE phylogenetic trees
 │   ├── 12_treetime/                             # Time-resolved phylogeny (TreeTime)
+│       ├── visualization /
+│       └── MARV.A.1/
+│              └── visualization/
 │   └── 13_multiqc/
 │       ├── fastp/                              # MultiQC report for Fastp
 │       ├── nextclade/                           # MultiQC report for Nextclade
@@ -246,7 +264,7 @@ MARV-GEN-VSP-Illumina-Analysis/
 └── README.md
              
 ```
-## Lineage-Defining SNPs Analysis
+## SNPs analysis
 
 The MARV-GEN repository includes scripts for advanced genomic analyses of the Marburg virus sequences, separate from the core Illumina processing pipeline.
 
@@ -258,10 +276,7 @@ The MARV-GEN repository includes scripts for advanced genomic analyses of the Ma
 - Maps SNPs to coding sequences (CDS) and reports amino acid changes.  
 - Outputs CSV/TSV tables for SNP positions and amino acid changes.
 
-**Outputs:**
-
-- `ethiopian_lineage_defining_snps_aa.csv`  
-- `ethiopian_snps_protein.tsv`  
+**Outputs:** `ethiopian_lineage_defining_snps_aa.csv`  and `ethiopian_snps_protein.tsv`  
 
 ---
 
@@ -273,9 +288,7 @@ The MARV-GEN repository includes scripts for advanced genomic analyses of the Ma
 - Computes observed nonsynonymous (N) and synonymous (S) substitutions.  
 - Estimates dN/dS (ω) per gene to detect selective pressures.
 
-**Outputs:**
-
-- `selective_pressure_analysis.csv`  
+**Outputs:**  `selective_pressure_analysis.csv`  
 - Console summary of genetic distance and diversity metrics.  
 
 ---
@@ -293,9 +306,7 @@ These scripts generate publication-quality visualizations to complement the anal
 - Shows coding sequences (CDS) as colored blocks with gene labels.  
 - Produces high-resolution PNG figure for manuscripts.
 
-**Output:**
-
-- `ethiopian_snp_genome_map_aa_pro.png`  
+**Output:** `ethiopian_snp_genome_map_aa_pro.png`  
 
 ---
 
@@ -308,9 +319,7 @@ These scripts generate publication-quality visualizations to complement the anal
 - Annotates bootstrap values and adds a temporal axis.  
 - Produces PDF, PNG, SVG, and EPS high-resolution figures.
 
-**Outputs:**
-
-- `MARV.A1_Bootstrap_Labeled_NoTitle_Tree.{pdf,png,svg,eps}`  
+**Outputs:** `MARV.A1_Bootstrap_Labeled_NoTitle_Tree.{pdf,png,svg,eps}`  
 
 
 ## Logging
@@ -326,5 +335,6 @@ Logs capture runtime, errors, and pipeline decisions.
 ## License
 
 This repository is open for academic and research use.
+
 
 
