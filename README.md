@@ -68,7 +68,6 @@ The pipeline uses the following software tools:
 - [minimap2](https://github.com/lh3/minimap2) – Read mapping
 - [Qualimap](http://qualimap.bioinfo.cipf.es) – BAM QC
 - [MAFFT](https://mafft.cbrc.jp/alignment/software/) – Multiple sequence alignment
-- [trimAl](http://trimal.cgenomics.org/) – Alignment trimming
 - [Nextclade](https://clades.nextstrain.org/) – clade asignment
 - [IQ-TREE](http://www.iqtree.org/) – Phylogenetic analysis
 - [treetime](https://github.com/neherlab/treetime) – time-scaled phylogenies
